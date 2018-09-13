@@ -4,10 +4,12 @@
 <script src="https://surveyjs.azureedge.net/1.0.43/surveyeditor.min.js"></script>
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
 
-<link href="https://surveyjs.azureedge.net/1.0.43/survey.css" type="text/css" rel="stylesheet" />
 <script src="https://surveyjs.azureedge.net/1.0.43/survey.jquery.min.js"></script>
 <div id="surveyContainer"></div>
-<script>var surveyJSON = {pages:[{name:"page1",elements:[{type:"radiogroup",name:"haveKids",title:"Do you have a kid(s)?",isRequired:true,choices:["Yes","No"],colCount:0},{type:"dropdown",name:"kids",visibleIf:"{haveKids}='Yes'",title:"How many kids do you have",isRequired:true,choices:[1,2,3,4,5]},{type:"dropdown",name:"kid1Age",visibleIf:"{haveKids}='Yes' and {kids} >= 1",title:"The first kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid2Age",visibleIf:"{haveKids}='Yes' and {kids} >= 2",startWithNewLine:false,title:"The second kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid3Age",visible:false,visibleIf:"{haveKids}='Yes' and {kids} >= 3",startWithNewLine:false,title:"The third kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid4Age",visible:false,visibleIf:"{haveKids}='Yes' and {kids} >= 4",startWithNewLine:false,title:"The fourth kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid5Age",visible:false,visibleIf:"{haveKids}='Yes' and {kids} >= 5",startWithNewLine:false,title:"The fifth kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]}]}],showQuestionNumbers:"off"}
+<script>
+    Survey.Survey.cssType = "bootstrap";
+
+var surveyJSON = {pages:[{name:"page1",elements:[{type:"radiogroup",name:"haveKids",title:"Do you have a kid(s)?",isRequired:true,choices:["Yes","No"],colCount:0},{type:"dropdown",name:"kids",visibleIf:"{haveKids}='Yes'",title:"How many kids do you have",isRequired:true,choices:[1,2,3,4,5]},{type:"dropdown",name:"kid1Age",visibleIf:"{haveKids}='Yes' and {kids} >= 1",title:"The first kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid2Age",visibleIf:"{haveKids}='Yes' and {kids} >= 2",startWithNewLine:false,title:"The second kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid3Age",visible:false,visibleIf:"{haveKids}='Yes' and {kids} >= 3",startWithNewLine:false,title:"The third kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid4Age",visible:false,visibleIf:"{haveKids}='Yes' and {kids} >= 4",startWithNewLine:false,title:"The fourth kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]},{type:"dropdown",name:"kid5Age",visible:false,visibleIf:"{haveKids}='Yes' and {kids} >= 5",startWithNewLine:false,title:"The fifth kid age:",isRequired:true,choices:[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]}]}],showQuestionNumbers:"off"}
 
 function sendDataToServer(survey) {
     //send Ajax request to your web server.
@@ -18,6 +20,7 @@ var survey = new Survey.Model(surveyJSON);
 $("#surveyContainer").Survey({
     model: survey,
     onComplete: sendDataToServer
-});</script>
+});
+</script>
 
 
