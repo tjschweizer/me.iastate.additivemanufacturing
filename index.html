@@ -14,7 +14,25 @@
         <div id="surveyElement"></div>
         <div id="surveyResult"></div>
 
-        <script type="text/javascript" src="./index.js"></script>
+        <!--<script type="text/javascript" src="./index.js"></script>-->
+        
+
+
+    $("button").on("click",function(){
+      //console.log("hii");
+      $.ajax({
+        headers:{  
+           "Authorization":"Bearer frhudwfenradagusykfjtnqrji",
+     "Accept":"application/json",//depends on your api
+      "Content-type":" application/json "//depends on your api
+        },   url:"https://api.smartsheet.com/2.0/sheets",
+        success:function(response){
+          var r=JSON.parse(response);
+          $("#main").html(r.base);
+        }
+      });
+});
+
 
     </body>
 </html>
