@@ -10,27 +10,17 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     </head>
-<body id='bod'><button type="submit">call</button>
-<div id='div'>
-
-</div></body>
+    
+    
+    <body>
+    
+    <form action="https://api.smartsheet.com/2.0/sheets?Content-Type=applications/json&Authorization=Bearer%20frhudwfenradagusykfjtnqrji" method="GET">
+        <input type="submit" value="Submit">
+        </form>
+    
+    </body>
 
         
 
-<script>
-    $("button").on("click",function(){
-      //console.log("hii");
-      $.ajax({
-        headers:{  
-           "Authorization":"Bearer frhudwfenradagusykfjtnqrji",
-      "Content-type":" application/json "//depends on your api
-        },   url:"https://api.smartsheet.com/2.0/sheets",
-        success:function(response){
-          var r=JSON.parse(response);
-          $("#main").html(r.base);
-        }
-      });
-});
-        </script>
 
 </html>
