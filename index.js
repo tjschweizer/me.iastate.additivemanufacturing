@@ -269,6 +269,15 @@ survey
         document
             .querySelector('#surveyResult')
             .innerHTML = "result: " + JSON.stringify(result.data);
+    var client = require('smartsheet');
+var smartsheet = client.createClient({accessToken:'frhudwfenradagusykfjtnqrji'});
+smartsheet.users.getCurrentUser()
+    .then(function(userProfile) {
+        console.log(userProfile);
+    })
+    .catch(function(error) {
+        console.log(error);
+    });
     });
 
 $("#surveyElement").Survey({model: survey});
