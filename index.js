@@ -6,15 +6,8 @@ function sendDataToServer(survey) {
     alert("The results are:" + JSON.stringify(survey.data));
 }
 
-@Component({
-  selector: 'ng-app',
-        template: 
-        <div id='surveyElement'></div>",
-})
-export class AppComponent {
-    ngOnInit() {
-        var survey = new Survey.Model(surveyJSON);
-        survey.onComplete.add(sendDataToServer);
-       Survey.SurveyNG.render("surveyElement", { model: survey });
-    }
-}
+var survey = new Survey.Model(surveyJSON);
+$("#surveyContainer").Survey({
+    model: survey,
+    onComplete: sendDataToServer
+});
